@@ -1,0 +1,5 @@
+# Environment Config
+.env
+
+# Mac Files
+.DS_Store
