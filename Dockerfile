@@ -52,6 +52,18 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 RUN sed -e 's/max_execution_time = 30/max_execution_time = 60/' -i "$PHP_INI_DIR/php.ini"
 
+# Copy custom ini configuration
+COPY ./config/custom.ini $PHP_INI_DIR/conf.d/
+
+# Copy Opcache configuration
+COPY ./config/opcache.ini $PHP_INI_DIR/conf.d/
+
+# Copy MSSQL configuration
+COPY ./config/sqlsrv.ini $PHP_INI_DIR/conf.d/
+
+# Copy Redis configuration
+COPY ./config/redis.ini $PHP_INI_DIR/conf.d/
+
 # Install HTTP Request2
 #RUN pear install HTTP_Request2
 
